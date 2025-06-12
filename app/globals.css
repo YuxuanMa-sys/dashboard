@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 221.2 83.2% 53.3%; /* Blue-600 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%; /* Slate-100 */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 172.3 58.8% 47.8%; /* Teal-500 */
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142.1 70.6% 45.3%; /* Green-600 */
+    --success-foreground: 210 40% 98%;
+    --warning: 38.9 92.3% 50.0%; /* Amber-500 */
+    --warning-foreground: 222.2 47.4% 11.2%;
+    --info: 248.2 62.3% 60.0%; /* Indigo-500 */
+    --info-foreground: 210 40% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* Chart Colors */
+    --chart-1: 221.2 83.2% 53.3%; /* Primary Blue */
+    --chart-2: 172.3 58.8% 47.8%; /* Accent Teal */
+    --chart-3: 38.9 92.3% 50.0%; /* Warning Amber */
+    --chart-4: 248.2 62.3% 60.0%; /* Info Indigo */
+    --chart-5: 340.2 82.2% 56.9%; /* Rose-500 */
+    --chart-6: 142.1 70.6% 45.3%; /* Success Green */
+    --chart-7: 26.8 94.8% 50.0%; /* Orange-500 */
+
+    /* Sidebar Colors (already present, ensure they are what you want) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%; /* Brighter Blue for Dark Mode */
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 172.3 58.8% 47.8%; /* Teal can often work well in dark */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142.1 70.6% 35.3%; /* Darker Green */
+    --success-foreground: 0 0% 98%;
+    --warning: 38.9 92.3% 40.0%; /* Darker Amber */
+    --warning-foreground: 0 0% 98%;
+    --info: 248.2 62.3% 50.0%; /* Darker Indigo */
+    --info-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 217.2 91.2% 59.8%;
+
+    /* Chart Colors Dark (can be same or adjusted) */
+    --chart-1: 217.2 91.2% 59.8%;
+    --chart-2: 172.3 58.8% 47.8%;
+    --chart-3: 45 93% 47%; /* Brighter Yellow/Orange for dark */
+    --chart-4: 250 80% 65%; /* Brighter Indigo for dark */
+    --chart-5: 340 80% 65%; /* Brighter Rose for dark */
+    --chart-6: 140 65% 55%; /* Brighter Green for dark */
+    --chart-7: 30 90% 55%; /* Brighter Orange for dark */
+
+    /* Sidebar Colors Dark (already present) */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,416 @@
+[
+  {
+    "order_id": "WC-1001",
+    "customer_name": "Alice Johnson",
+    "customer_email": "alice@example.com",
+    "order_date": "2025-01-15T10:30:00Z",
+    "status": "completed",
+    "total_amount": 150.75,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-A",
+        "product_name": "Elegant Watch",
+        "category": "Accessories",
+        "quantity": 1,
+        "price": 120.0
+      },
+      {
+        "product_id": "PROD-B",
+        "product_name": "Leather Strap",
+        "category": "Accessories",
+        "quantity": 1,
+        "price": 30.75
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1002",
+    "customer_name": "Bob Smith",
+    "customer_email": "bob@example.com",
+    "order_date": "2025-02-05T14:15:00Z",
+    "status": "processing",
+    "total_amount": 75.5,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      {
+        "product_id": "PROD-C",
+        "product_name": "Wireless Earbuds",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 75.5
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1003",
+    "customer_name": "Carol White",
+    "customer_email": "carol@example.com",
+    "order_date": "2025-03-10T09:00:00Z",
+    "status": "completed",
+    "total_amount": 220.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-D",
+        "product_name": "Smart Speaker",
+        "category": "Electronics",
+        "quantity": 2,
+        "price": 110.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1004",
+    "customer_name": "David Green",
+    "customer_email": "david@example.com",
+    "order_date": "2025-04-12T11:20:00Z",
+    "status": "completed",
+    "total_amount": 99.99,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      {
+        "product_id": "PROD-E",
+        "product_name": "Gaming Mouse",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 99.99
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1005",
+    "customer_name": "Eve Black",
+    "customer_email": "eve@example.com",
+    "order_date": "2025-05-20T16:45:00Z",
+    "status": "pending",
+    "total_amount": 45.0,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      { "product_id": "PROD-F", "product_name": "USB-C Cable", "category": "Electronics", "quantity": 3, "price": 15.0 }
+    ]
+  },
+  {
+    "order_id": "WC-1006",
+    "customer_name": "Frank Blue",
+    "customer_email": "frank@example.com",
+    "order_date": "2025-06-01T08:10:00Z",
+    "status": "completed",
+    "total_amount": 1200.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-G",
+        "product_name": "Shopify eCommerce Store Template",
+        "category": "Services",
+        "quantity": 1,
+        "price": 1200.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1007",
+    "customer_name": "Grace Yellow",
+    "customer_email": "grace@example.com",
+    "order_date": "2025-06-03T12:30:00Z",
+    "status": "completed",
+    "total_amount": 1450.0,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      {
+        "product_id": "PROD-H",
+        "product_name": "iOS Apps Development Service",
+        "category": "Services",
+        "quantity": 1,
+        "price": 1450.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1008",
+    "customer_name": "Henry Purple",
+    "customer_email": "henry@example.com",
+    "order_date": "2025-06-05T15:00:00Z",
+    "status": "completed",
+    "total_amount": 1250.0,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      {
+        "product_id": "PROD-I",
+        "product_name": "Figma Dashboard Design",
+        "category": "Services",
+        "quantity": 1,
+        "price": 1250.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1009",
+    "customer_name": "Ivy Stone",
+    "customer_email": "ivy@example.com",
+    "order_date": "2025-06-10T10:00:00Z",
+    "status": "processing",
+    "total_amount": 85.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-J",
+        "product_name": "Premium Coffee Beans",
+        "category": "Food & Beverage",
+        "quantity": 2,
+        "price": 42.5
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1010",
+    "customer_name": "Jack Steel",
+    "customer_email": "jack@example.com",
+    "order_date": "2025-06-11T11:30:00Z",
+    "status": "pending",
+    "total_amount": 199.99,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      {
+        "product_id": "PROD-K",
+        "product_name": "Noise Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 199.99
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1011",
+    "customer_name": "Katherine Wood",
+    "customer_email": "katherine@example.com",
+    "order_date": "2025-06-12T13:15:00Z",
+    "status": "completed",
+    "total_amount": 30.0,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      { "product_id": "PROD-L", "product_name": "Yoga Mat", "category": "Home Goods", "quantity": 1, "price": 30.0 }
+    ]
+  },
+  {
+    "order_id": "WC-1012",
+    "customer_name": "Liam Brick",
+    "customer_email": "liam@example.com",
+    "order_date": "2025-06-13T14:45:00Z",
+    "status": "completed",
+    "total_amount": 500.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-M",
+        "product_name": "Office Chair",
+        "category": "Home Goods",
+        "quantity": 1,
+        "price": 500.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1013",
+    "customer_name": "Mia Paper",
+    "customer_email": "mia@example.com",
+    "order_date": "2025-06-14T16:00:00Z",
+    "status": "processing",
+    "total_amount": 70.0,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      { "product_id": "PROD-N", "product_name": "Desk Lamp", "category": "Home Goods", "quantity": 2, "price": 35.0 }
+    ]
+  },
+  {
+    "order_id": "WC-1014",
+    "customer_name": "Noah Glass",
+    "customer_email": "noah@example.com",
+    "order_date": "2025-06-15T09:20:00Z",
+    "status": "pending",
+    "total_amount": 120.0,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      {
+        "product_id": "PROD-O",
+        "product_name": "Smart Water Bottle",
+        "category": "Home Goods",
+        "quantity": 1,
+        "price": 120.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1015",
+    "customer_name": "Olivia Plastic",
+    "customer_email": "olivia@example.com",
+    "order_date": "2025-06-16T10:50:00Z",
+    "status": "completed",
+    "total_amount": 25.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-P",
+        "product_name": "Reusable Shopping Bag",
+        "category": "Home Goods",
+        "quantity": 5,
+        "price": 5.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1016",
+    "customer_name": "Lucas Metal",
+    "customer_email": "lucas@example.com",
+    "order_date": "2025-06-17T12:10:00Z",
+    "status": "cancelled",
+    "total_amount": 90.0,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      {
+        "product_id": "PROD-Q",
+        "product_name": "Bluetooth Speaker",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 90.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1017",
+    "customer_name": "Ava Cotton",
+    "customer_email": "ava@example.com",
+    "order_date": "2025-06-18T14:00:00Z",
+    "status": "refunded",
+    "total_amount": 60.0,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      {
+        "product_id": "PROD-R",
+        "product_name": "Electric Toothbrush",
+        "category": "Home Goods",
+        "quantity": 1,
+        "price": 60.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1018",
+    "customer_name": "Ethan Silk",
+    "customer_email": "ethan@example.com",
+    "order_date": "2025-06-19T15:30:00Z",
+    "status": "completed",
+    "total_amount": 450.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-S",
+        "product_name": "Air Purifier",
+        "category": "Home Goods",
+        "quantity": 1,
+        "price": 450.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1019",
+    "customer_name": "Sophia Wool",
+    "customer_email": "sophia@example.com",
+    "order_date": "2025-06-20T17:00:00Z",
+    "status": "pending",
+    "total_amount": 15.0,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      { "product_id": "PROD-T", "product_name": "Phone Stand", "category": "Electronics", "quantity": 1, "price": 15.0 }
+    ]
+  },
+  {
+    "order_id": "WC-1020",
+    "customer_name": "Jackson Leather",
+    "customer_email": "jackson@example.com",
+    "order_date": "2025-06-21T08:45:00Z",
+    "status": "processing",
+    "total_amount": 300.0,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      {
+        "product_id": "PROD-U",
+        "product_name": "External Hard Drive",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 300.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1021",
+    "customer_name": "Isabella Denim",
+    "customer_email": "isabella@example.com",
+    "order_date": "2025-06-22T10:15:00Z",
+    "status": "completed",
+    "total_amount": 80.0,
+    "currency": "USD",
+    "payment_method": "Stripe",
+    "items": [
+      {
+        "product_id": "PROD-V",
+        "product_name": "Fitness Tracker",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 80.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1022",
+    "customer_name": "Aiden Velvet",
+    "customer_email": "aiden@example.com",
+    "order_date": "2025-06-23T11:50:00Z",
+    "status": "completed",
+    "total_amount": 220.0,
+    "currency": "USD",
+    "payment_method": "PayPal",
+    "items": [
+      {
+        "product_id": "PROD-W",
+        "product_name": "Digital Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "price": 220.0
+      }
+    ]
+  },
+  {
+    "order_id": "WC-1023",
+    "customer_name": "Chloe Suede",
+    "customer_email": "chloe@example.com",
+    "order_date": "2025-06-24T13:25:00Z",
+    "status": "pending",
+    "total_amount": 55.0,
+    "currency": "USD",
+    "payment_method": "Credit Card",
+    "items": [
+      { "product_id": "PROD-X", "product_name": "Travel Mug", "category": "Home Goods", "quantity": 1, "price": 55.0 }
+    ]
+  }
+]

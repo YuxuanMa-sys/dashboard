@@ -1,0 +1,240 @@
+[
+  {
+    "submission_id": "CF7-S001",
+    "form_id": "contact-form-1",
+    "form_name": "General Inquiry",
+    "submission_date": "2025-06-02T09:00:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "Charlie Brown",
+      "your-email": "charlie@example.com",
+      "your-subject": "Question about services",
+      "your-message": "I would like to know more about your data analysis packages."
+    }
+  },
+  {
+    "submission_id": "CF7-S002",
+    "form_id": "quote-request-form",
+    "form_name": "Quote Request",
+    "submission_date": "2025-06-06T11:45:00Z",
+    "status": "Contacted",
+    "fields": {
+      "your-name": "Diana Prince",
+      "your-email": "diana@example.com",
+      "company-name": "Themyscira Inc.",
+      "service-needed": "Advanced Data Analytics",
+      "project-details": "Looking for a detailed analysis of our sales data."
+    }
+  },
+  {
+    "submission_id": "CF7-S003",
+    "form_id": "support-ticket",
+    "form_name": "Support Ticket",
+    "submission_date": "2025-06-08T14:20:00Z",
+    "status": "In Progress",
+    "fields": {
+      "your-name": "Peter Parker",
+      "your-email": "peter@example.com",
+      "issue-type": "Technical Difficulty",
+      "description": "Unable to access my account dashboard."
+    }
+  },
+  {
+    "submission_id": "CF7-S004",
+    "form_id": "contact-form-1",
+    "form_name": "General Inquiry",
+    "submission_date": "2025-06-10T17:00:00Z",
+    "status": "Qualified",
+    "fields": {
+      "your-name": "Bruce Wayne",
+      "your-email": "bruce@example.com",
+      "your-subject": "Partnership Opportunity",
+      "your-message": "Interested in discussing a potential partnership."
+    }
+  },
+  {
+    "submission_id": "CF7-S005",
+    "form_id": "feedback-form",
+    "form_name": "User Feedback",
+    "submission_date": "2025-06-11T10:30:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "Edward Norton",
+      "your-email": "edward@example.com",
+      "rating": "5",
+      "comments": "Great service, very helpful!"
+    }
+  },
+  {
+    "submission_id": "CF7-S006",
+    "form_id": "contact-form-1",
+    "form_name": "General Inquiry",
+    "submission_date": "2025-06-12T15:00:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "Fiona Apple",
+      "your-email": "fiona@example.com",
+      "your-subject": "Pricing Information",
+      "your-message": "Could you provide more details on your enterprise plan?"
+    }
+  },
+  {
+    "submission_id": "CF7-S007",
+    "form_id": "quote-request-form",
+    "form_name": "Quote Request",
+    "submission_date": "2025-06-13T09:15:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "George Clooney",
+      "your-email": "george@example.com",
+      "company-name": "Ocean Eleven LLC",
+      "service-needed": "Data Migration",
+      "project-details": "Need to migrate legacy data to a new system."
+    }
+  },
+  {
+    "submission_id": "CF7-S008",
+    "form_id": "support-ticket",
+    "form_name": "Support Ticket",
+    "submission_date": "2025-06-14T11:00:00Z",
+    "status": "In Progress",
+    "fields": {
+      "your-name": "Helen Hunt",
+      "your-email": "helen@example.com",
+      "issue-type": "Billing Inquiry",
+      "description": "There's a discrepancy on my last invoice."
+    }
+  },
+  {
+    "submission_id": "CF7-S009",
+    "form_id": "contact-form-1",
+    "form_name": "General Inquiry",
+    "submission_date": "2025-06-15T16:30:00Z",
+    "status": "Contacted",
+    "fields": {
+      "your-name": "Ian McKellen",
+      "your-email": "ian@example.com",
+      "your-subject": "Feature Request",
+      "your-message": "It would be great if you could add X feature."
+    }
+  },
+  {
+    "submission_id": "CF7-S010",
+    "form_id": "feedback-form",
+    "form_name": "User Feedback",
+    "submission_date": "2025-06-16T12:45:00Z",
+    "status": "Closed",
+    "fields": {
+      "your-name": "Jennifer Aniston",
+      "your-email": "jennifer@example.com",
+      "rating": "4",
+      "comments": "Good, but could use some improvements in UI."
+    }
+  },
+  {
+    "submission_id": "CF7-S011",
+    "form_id": "quote-request-form",
+    "form_name": "Quote Request",
+    "submission_date": "2025-06-17T14:20:00Z",
+    "status": "Qualified",
+    "fields": {
+      "your-name": "Keanu Reeves",
+      "your-email": "keanu@example.com",
+      "company-name": "Matrix Solutions",
+      "service-needed": "Custom Dashboard Development",
+      "project-details": "Require a bespoke dashboard for our sales team."
+    }
+  },
+  {
+    "submission_id": "CF7-S012",
+    "form_id": "support-ticket",
+    "form_name": "Support Ticket",
+    "submission_date": "2025-06-18T08:50:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "Leonardo DiCaprio",
+      "your-email": "leo@example.com",
+      "issue-type": "Login Problem",
+      "description": "Cannot log in, password reset not working."
+    }
+  },
+  {
+    "submission_id": "CF7-S013",
+    "form_id": "contact-form-1",
+    "form_name": "General Inquiry",
+    "submission_date": "2025-06-19T10:05:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "Meryl Streep",
+      "your-email": "meryl@example.com",
+      "your-subject": "Collaboration Inquiry",
+      "your-message": "Interested in exploring collaboration opportunities."
+    }
+  },
+  {
+    "submission_id": "CF7-S014",
+    "form_id": "feedback-form",
+    "form_name": "User Feedback",
+    "submission_date": "2025-06-20T13:30:00Z",
+    "status": "New",
+    "fields": {
+      "your-name": "Natalie Portman",
+      "your-email": "natalie@example.com",
+      "rating": "3",
+      "comments": "The onboarding process was a bit confusing."
+    }
+  },
+  {
+    "submission_id": "CF7-S015",
+    "form_id": "quote-request-form",
+    "form_name": "Quote Request",
+    "submission_date": "2025-06-21T15:55:00Z",
+    "status": "Contacted",
+    "fields": {
+      "your-name": "Orlando Bloom",
+      "your-email": "orlando@example.com",
+      "company-name": "Pirates Co.",
+      "service-needed": "Data Visualization",
+      "project-details": "Need help visualizing our marketing campaign results."
+    }
+  },
+  {
+    "submission_id": "CF7-S016",
+    "form_id": "support-ticket",
+    "form_name": "Support Ticket",
+    "submission_date": "2025-06-22T17:40:00Z",
+    "status": "In Progress",
+    "fields": {
+      "your-name": "Penelope Cruz",
+      "your-email": "penelope@example.com",
+      "issue-type": "Feature Malfunction",
+      "description": "The export to CSV feature is not working as expected."
+    }
+  },
+  {
+    "submission_id": "CF7-S017",
+    "form_id": "contact-form-1",
+    "form_name": "General Inquiry",
+    "submission_date": "2025-06-23T09:00:00Z",
+    "status": "Qualified",
+    "fields": {
+      "your-name": "Quentin Tarantino",
+      "your-email": "quentint@example.com",
+      "your-subject": "Speaking Engagement",
+      "your-message": "Inquiring about availability for a speaking engagement."
+    }
+  },
+  {
+    "submission_id": "CF7-S018",
+    "form_id": "feedback-form",
+    "form_name": "User Feedback",
+    "submission_date": "2025-06-24T11:20:00Z",
+    "status": "Closed",
+    "fields": {
+      "your-name": "Robert Downey Jr.",
+      "your-email": "robertd@example.com",
+      "rating": "5",
+      "comments": "Absolutely fantastic tool, saves me a lot of time!"
+    }
+  }
+]
