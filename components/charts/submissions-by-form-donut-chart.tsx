@@ -8,7 +8,7 @@ import React from "react"
 
 interface SubmissionsByFormDonutChartProps {
   submissions: CF7Submission[]
-  title?: string // Optional title
+  title?: string
 }
 
 export function SubmissionsByFormDonutChart({

@@ -29,7 +29,7 @@ export function SubmissionStatusPieChart({ submissions }: SubmissionStatusPieCha
       acc[sub.status] = (acc[sub.status] || 0) + 1
       return acc
     },
-    {} as Record<CF7Submission["status"], number>,
+    {} as Record<string, number>,
   )
 
   const data = Object.entries(statusCounts).map(([name, value]) => ({
@@ -78,21 +78,16 @@ export function SubmissionStatusPieChart({ submissions }: SubmissionStatusPieCha
               cx="50%"
               cy="50%"
               labelLine={false}
-              label={false} // Remove in-slice labels
+              label={false}
               outerRadius={100}
-              innerRadius={50} // Donut chart
+              innerRadius={50}
               fill="#8884d8"
               dataKey="value"
               stroke={theme === "dark" ? "hsl(var(--card))" : "hsl(var(--background))"}
               strokeWidth={2}
             >
               {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={
-                    chartColorVars[entry.name.toLowerCase() as keyof typeof chartColorVars] || "hsl(var(--chart-7))"
-                  }
-                />
+                <Cell key={`cell-${index}`} fill={chartColorVars[entry.name.toLowerCase()] || "hsl(var(--chart-7))"} />
               ))}
             </Pie>
             <Tooltip

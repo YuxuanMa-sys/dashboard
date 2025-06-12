@@ -8,7 +8,7 @@ import React from "react"
 
 interface OrderStatusPieChartProps {
   orders: WooCommerceOrder[]
-  title?: string // Optional title to differentiate if used multiple times
+  title?: string
 }
 
 export function OrderStatusPieChart({ orders, title = "Order Status Distribution" }: OrderStatusPieChartProps) {
@@ -17,12 +17,12 @@ export function OrderStatusPieChart({ orders, title = "Order Status Distribution
 
   React.useEffect(() => setMounted(true), [])
 
-  const chartColorVars: Record<WooCommerceOrder["status"], string> = {
-    completed: "hsl(var(--chart-6))", // Green
-    processing: "hsl(var(--chart-4))", // Indigo
-    pending: "hsl(var(--chart-3))", // Amber
-    cancelled: "hsl(var(--chart-5))", // Rose
-    refunded: "hsl(var(--muted-foreground))", // Muted
+  const chartColorVars: Record<string, string> = {
+    completed: "hsl(var(--chart-6))",
+    processing: "hsl(var(--chart-4))",
+    pending: "hsl(var(--chart-3))",
+    cancelled: "hsl(var(--chart-5))",
+    refunded: "hsl(var(--muted-foreground))",
   }
 
   const statusCounts = orders.reduce(
@@ -30,10 +30,10 @@ export function OrderStatusPieChart({ orders, title = "Order Status Distribution
       acc[order.status] = (acc[order.status] || 0) + 1
       return acc
     },
-    {} as Record<WooCommerceOrder["status"], number>,
+    {} as Record<string, number>,
   )
 
-  const data = (Object.entries(statusCounts) as [WooCommerceOrder["status"], number][])
+  const data = Object.entries(statusCounts)
     .map(([name, value]) => ({
       name: name.charAt(0).toUpperCase() + name.slice(1),
       value,

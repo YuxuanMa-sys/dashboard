@@ -84,9 +84,9 @@ export function SalesByCategoryPieChart({ orders }: SalesByCategoryPieChartProps
               cx="50%"
               cy="50%"
               labelLine={false}
-              label={false} // Remove in-slice labels
+              label={false}
               outerRadius={100}
-              innerRadius={50} // Donut chart
+              innerRadius={50}
               fill="#8884d8"
               dataKey="value"
               stroke={theme === "dark" ? "hsl(var(--card))" : "hsl(var(--background))"}
