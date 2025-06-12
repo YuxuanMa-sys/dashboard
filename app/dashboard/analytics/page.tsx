@@ -13,10 +13,11 @@ import wooCommerceOrdersData from "@/lib/data/woocommerce-orders.json"
 import cf7SubmissionsData from "@/lib/data/cf7-submissions.json"
 import type { WooCommerceOrder, CF7Submission } from "@/types"
 
-const orders: WooCommerceOrder[] = wooCommerceOrdersData as WooCommerceOrder[]
-const submissions: CF7Submission[] = cf7SubmissionsData as CF7Submission[]
+export default function AnalyticsPage() {
+  // Cast the imported data to the correct types
+  const orders = wooCommerceOrdersData as WooCommerceOrder[]
+  const submissions = cf7SubmissionsData as CF7Submission[]
 
-export default function AnalyticsPageRedesigned() {
   // --- Data Calculations ---
   const totalRevenue = orders
     .filter((order) => order.status === "completed")
@@ -91,7 +92,10 @@ export default function AnalyticsPageRedesigned() {
           value={activeDealsValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           icon={ShoppingCart}
           comparisonValue={`${activeDealsChangePercentage.toFixed(1)}%`}
-          comparisonText={`vs last month: $${lastMonthActiveDeals.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          comparisonText={`vs last month: $${lastMonthActiveDeals.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}`}
           comparisonTrend={activeDealsChangePercentage >= 0 ? "up" : "down"}
         />
         <KpiCardStyled
@@ -99,7 +103,10 @@ export default function AnalyticsPageRedesigned() {
           value={totalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           icon={DollarSign}
           comparisonValue={`${revenueChangePercentage.toFixed(1)}%`}
-          comparisonText={`vs last month: $${lastMonthRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          comparisonText={`vs last month: $${lastMonthRevenue.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}`}
           comparisonTrend={revenueChangePercentage >= 0 ? "up" : "down"}
         />
         <KpiCardStyled

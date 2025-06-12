@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import type { WooCommerceOrder } from "@/types"
@@ -60,10 +59,8 @@ export function PaymentRecordChart({ orders }: PaymentRecordChartProps) {
               domain={[0, "dataMax + 10000"]}
             />
             <Tooltip
-              formatter={(value: number, name: string) => {
-                const currencyValue = `$${value.toFixed(2)}`
-                if (name === "projected") return [currencyValue, "Projected Sales"]
-                return [currencyValue, "Total Sales"]
+              formatter={(value: number) => {
+                return [`$${value.toFixed(2)}`, "Total Sales"]
               }}
             />
             <Legend verticalAlign="top" align="right" iconType="circle" wrapperStyle={{ paddingBottom: "20px" }} />
