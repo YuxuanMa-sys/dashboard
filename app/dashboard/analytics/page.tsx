@@ -66,10 +66,6 @@ export default function AnalyticsPageRedesigned() {
     },
   ]
 
-  const revenueForecastPercentage = 63
-  const marketingGoal = "$550/$1250 USD"
-  const teamsGoal = "$550/$1250 USD"
-
   return (
     <div className="flex-1 space-y-6 p-4 md:p-6 lg:p-8 bg-muted/30">
       {/* Header Section */}
