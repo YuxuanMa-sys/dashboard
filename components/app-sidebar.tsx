@@ -30,13 +30,13 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="border-r bg-background flex flex-col">
-      <SidebarHeader className="p-4 border-b h-16 flex items-center">
+      <SidebarHeader className="p-3 sm:p-4 border-b h-14 sm:h-16 flex items-center">
         <Link href="/dashboard" className="flex items-center gap-2">
           <Image src="/placeholder.svg?height=32&width=32" width={32} height={32} alt="Duralux Logo" />
-          <span className="font-bold text-lg text-primary">DURALUX</span>
+          <span className="font-bold text-base sm:text-lg text-primary">DURALUX</span>
         </Link>
       </SidebarHeader>
-      <SidebarContent className="flex-grow p-2">
+      <SidebarContent className="flex-grow p-2 sm:p-3">
         <SidebarMenu>
           {navItems.map((item) => (
             <SidebarMenuItem key={item.title}>
@@ -45,7 +45,7 @@ export function AppSidebar() {
                 variant={
                   pathname === item.href || (pathname.startsWith(item.href) && item.href !== "/dashboard")
                     ? "default"
-                    : "ghost"
+                    : "outline"
                 }
                 className={cn(
                   (pathname === item.href || (pathname.startsWith(item.href) && item.href !== "/dashboard")) &&
@@ -55,7 +55,7 @@ export function AppSidebar() {
               >
                 <Link href={item.href}>
                   <item.icon className="mr-2 h-4 w-4" />
-                  <span>{item.title}</span>
+                  <span className="text-sm sm:text-base">{item.title}</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

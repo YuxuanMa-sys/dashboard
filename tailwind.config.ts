@@ -17,7 +17,46 @@ const config: Config = {
         "2xl": "1400px",
       },
     },
+    screens: {
+      'xs': '475px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      // iPad specific breakpoints
+      'ipad': '768px',
+      'ipad-pro': '1024px',
+      // Mobile-first approach
+      'mobile': {'max': '767px'},
+      'tablet': {'min': '768px', 'max': '1023px'},
+      'desktop': {'min': '1024px'},
+    },
     extend: {
+      fontSize: {
+        // Responsive font sizes
+        'responsive-xs': ['0.75rem', { lineHeight: '1rem' }],
+        'responsive-sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'responsive-base': ['1rem', { lineHeight: '1.5rem' }],
+        'responsive-lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'responsive-xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        'responsive-2xl': ['1.5rem', { lineHeight: '2rem' }],
+        'responsive-3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        'responsive-4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        'responsive-5xl': ['3rem', { lineHeight: '1' }],
+        'responsive-6xl': ['3.75rem', { lineHeight: '1' }],
+      },
+      spacing: {
+        // Responsive spacing
+        'responsive-1': '0.25rem',
+        'responsive-2': '0.5rem',
+        'responsive-3': '0.75rem',
+        'responsive-4': '1rem',
+        'responsive-6': '1.5rem',
+        'responsive-8': '2rem',
+        'responsive-12': '3rem',
+        'responsive-16': '4rem',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

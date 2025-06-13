@@ -11,35 +11,34 @@ interface OrderStatusPieChartProps {
   title?: string
 }
 
+const chartColorVars = [
+  "hsl(var(--chart-1))",
+  "hsl(var(--chart-2))",
+  "hsl(var(--chart-3))",
+  "hsl(var(--chart-4))",
+  "hsl(var(--chart-5))",
+  "hsl(var(--chart-6))",
+  "hsl(var(--chart-7))",
+]
+
 export function OrderStatusPieChart({ orders, title = "Order Status Distribution" }: OrderStatusPieChartProps) {
   const { theme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => setMounted(true), [])
 
-  const chartColorVars: Record<string, string> = {
-    completed: "hsl(var(--chart-6))",
-    processing: "hsl(var(--chart-4))",
-    pending: "hsl(var(--chart-3))",
-    cancelled: "hsl(var(--chart-5))",
-    refunded: "hsl(var(--muted-foreground))",
-  }
+  // Group orders by status
+  const statusCounts = orders.reduce((acc, order) => {
+    acc[order.status] = (acc[order.status] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
 
-  const statusCounts = orders.reduce(
-    (acc, order) => {
-      acc[order.status] = (acc[order.status] || 0) + 1
-      return acc
-    },
-    {} as Record<string, number>,
-  )
-
-  const data = Object.entries(statusCounts)
-    .map(([name, value]) => ({
-      name: name.charAt(0).toUpperCase() + name.slice(1),
-      value,
-      statusKey: name,
-    }))
-    .sort((a, b) => b.value - a.value)
+  // Convert to chart data format
+  const data = Object.entries(statusCounts).map(([status, count], index) => ({
+    name: status.charAt(0).toUpperCase() + status.slice(1),
+    value: count,
+    statusKey: index,
+  }))
 
   if (!mounted) {
     return (
@@ -70,28 +69,29 @@ export function OrderStatusPieChart({ orders, title = "Order Status Distribution
 
   return (
     <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">{title}</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">
+      <CardHeader className="p-3 sm:p-4 lg:p-6">
+        <CardTitle className="text-sm sm:text-lg font-semibold">{title}</CardTitle>
+        <CardDescription className="text-xs sm:text-sm text-muted-foreground">
           Breakdown of orders by current status.
         </CardDescription>
       </CardHeader>
-      <CardContent className="h-[300px] pt-4">
+      <CardContent className="h-[250px] sm:h-[300px] pt-2 sm:pt-4 p-3 sm:p-4 lg:p-6">
         <ResponsiveContainer width="100%" height="100%">
-          <PieChart margin={{ top: 10, right: 10, bottom: 40, left: 10 }}>
+          <PieChart margin={{ top: 10, right: 10, bottom: 30, left: 10 }}>
             <Pie
               data={data}
               cx="50%"
               cy="50%"
               labelLine={false}
               label={false}
-              outerRadius={100}
-              innerRadius={50}
+              outerRadius={70}
+              innerRadius={35}
               fill="#8884d8"
               dataKey="value"
               nameKey="name"
               stroke={theme === "dark" ? "hsl(var(--card))" : "hsl(var(--background))"}
               strokeWidth={2}
+              className="sm:outerRadius-100 sm:innerRadius-50"
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={chartColorVars[entry.statusKey] || "hsl(var(--chart-1))"} />
@@ -99,18 +99,22 @@ export function OrderStatusPieChart({ orders, title = "Order Status Distribution
             </Pie>
             <Tooltip
               contentStyle={{
-                fontSize: "12px",
+                fontSize: "10px",
                 backgroundColor: theme === "dark" ? "rgba(30,41,59,0.9)" : "rgba(255,255,255,0.9)",
                 borderColor: theme === "dark" ? "rgba(51,65,85,0.9)" : "rgba(226,232,240,0.9)",
                 backdropFilter: "blur(4px)",
                 borderRadius: "var(--radius)",
-                padding: "8px 12px",
+                padding: "6px 8px",
               }}
               formatter={(value, name) => [`${value} orders`, name]}
             />
             <Legend
-              iconSize={10}
-              wrapperStyle={{ fontSize: "12px", paddingTop: "10px", bottom: 0 }}
+              iconSize={8}
+              wrapperStyle={{ 
+                fontSize: "10px", 
+                paddingTop: "8px", 
+                bottom: 0 
+              }}
               layout="horizontal"
               verticalAlign="bottom"
               align="center"

@@ -15,8 +15,8 @@ import type { WooCommerceOrder, CF7Submission } from "@/types"
 
 export default function AnalyticsPage() {
   // Cast the imported data to the correct types
-  const orders = wooCommerceOrdersData as WooCommerceOrder[]
-  const submissions = cf7SubmissionsData as CF7Submission[]
+  const orders = wooCommerceOrdersData as unknown as WooCommerceOrder[]
+  const submissions = cf7SubmissionsData as unknown as CF7Submission[]
 
   // --- Data Calculations ---
   const totalRevenue = orders
@@ -68,25 +68,25 @@ export default function AnalyticsPage() {
   ]
 
   return (
-    <div className="flex-1 space-y-6 p-4 md:p-6 lg:p-8 bg-muted/30">
+    <div className="flex-1 space-y-4 sm:space-y-6 p-3 sm:p-4 md:p-6 lg:p-8 bg-muted/30">
       {/* Header Section */}
-      <div className="flex flex-wrap items-center justify-between gap-y-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-y-3 sm:gap-y-4 mb-4 sm:mb-6">
         <div>
-          <h1 className="text-2xl font-semibold">Sales Analytics</h1>
-          <p className="text-sm text-muted-foreground">Reports &gt; Home &gt; Sales</p>
+          <h1 className="text-xl sm:text-2xl font-semibold">Sales Analytics</h1>
+          <p className="text-xs sm:text-sm text-muted-foreground">Reports &gt; Home &gt; Sales</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+          <Button variant="outline" className="w-full sm:w-auto">
             <Filter className="mr-2 h-4 w-4" /> Filter
           </Button>
-          <Button>
+          <Button className="w-full sm:w-auto">
             <Plus className="mr-2 h-4 w-4" /> Add Widgets
           </Button>
         </div>
       </div>
 
       {/* KPI Cards Row */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+      <div className="grid gap-3 sm:gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-4 sm:mb-6">
         <KpiCardStyled
           title="Active Deals"
           value={activeDealsValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -130,17 +130,17 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Main Content Grid - Section 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div className="lg:col-span-3 space-y-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
+        <div className="lg:col-span-3 space-y-4 sm:space-y-6">
           <SalesPipelineStages stages={pipelineStages} />
           <PaymentRecordChart orders={orders} />
         </div>
       </div>
 
       {/* Four Pie Charts Section */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Detailed Breakdowns</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mb-4 sm:mb-6">
+        <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Detailed Breakdowns</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <OrderStatusPieChart orders={orders} />
           <SalesByCategoryPieChart orders={orders} />
           <SubmissionStatusPieChart submissions={submissions} />
@@ -149,7 +149,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Latest Leads Table (Full Width) */}
-      <div className="mb-6">
+      <div className="mb-4 sm:mb-6">
         <LatestLeadsTable leads={submissions} />
       </div>
     </div>
