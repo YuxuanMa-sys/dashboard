@@ -4,7 +4,7 @@ import * as React from "react"
 import { useRouter } from "next/navigation"
 import { getItem, setItem, removeItem } from "@/lib/storage"
 
-const AUTH_STORAGE_KEY = "duralux_auth_user"
+const AUTH_STORAGE_KEY = "laguna_auth_user"
 
 interface User {
   id: string
@@ -16,7 +16,6 @@ interface AuthContextType {
   user: User | null
   isAuthenticated: boolean
   login: (email: string, pass: string) => Promise<boolean>
-  signup: (name: string, email: string, pass: string) => Promise<boolean>
   logout: () => void
   isLoading: boolean
 }
@@ -37,22 +36,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const login = async (email: string, pass: string): Promise<boolean> => {
-    // Mock login: in a real app, this would be an API call
-    if (email === "test@example.com" && pass === "password") {
-      const mockUser: User = { id: "1", name: "Test User", email }
+    // Default credentials for testing
+    const DEFAULT_EMAIL = "admin@example.com"
+    const DEFAULT_PASSWORD = "admin123"
+    if (email === DEFAULT_EMAIL && pass === DEFAULT_PASSWORD) {
+      const mockUser: User = { id: "1", name: "Admin User", email }
       setItem(AUTH_STORAGE_KEY, mockUser)
       setUser(mockUser)
       return true
     }
     return false
-  }
-
-  const signup = async (name: string, email: string, pass: string): Promise<boolean> => {
-    // Mock signup
-    const mockUser: User = { id: String(Date.now()), name, email }
-    setItem(AUTH_STORAGE_KEY, mockUser)
-    setUser(mockUser)
-    return true
   }
 
   const logout = () => {
@@ -62,7 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, signup, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   )
@@ -74,4 +67,4 @@ export function useAuth() {
     throw new Error("useAuth must be used within an AuthProvider")
   }
   return context
-}
+} 

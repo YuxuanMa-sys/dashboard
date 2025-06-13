@@ -1,238 +1,253 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { useParams } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, Printer, CreditCard, Package, User, HomeIcon, ShoppingBag } from "lucide-react"
+import { Order } from "@/types"
+import { LocalStorage } from "@/lib/storage"
+import ordersData from "@/lib/data/woocommerce-orders.json"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import wooCommerceOrdersData from "@/lib/data/woocommerce-orders.json"
-import type { WooCommerceOrder } from "@/types"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+export default function OrderDetailPage() {
+  const params = useParams()
+  const orderId = params.orderId as string
+  
+  const [order, setOrder] = useState<Order | null>(null)
+  const [currentStatus, setCurrentStatus] = useState<string>("")
+  const [isLoading, setIsLoading] = useState(true)
 
-async function getOrderDetails(orderId: string): Promise<WooCommerceOrder | undefined> {
-  const orders = wooCommerceOrdersData as WooCommerceOrder[]
-  return orders.find((o) => o.order_id === orderId)
-}
+  useEffect(() => {
+    if (!orderId) return
+    
+    const orders = ordersData as Order[]
+    const foundOrder = orders.find(o => o.id === orderId)
+    
+    if (foundOrder) {
+      setOrder(foundOrder)
+      // Check for saved status in localStorage, otherwise use original status
+      const savedStatus = LocalStorage.getOrderStatus(orderId)
+      setCurrentStatus(savedStatus || foundOrder.status)
+    }
+    setIsLoading(false)
+  }, [orderId])
 
-export default async function OrderDetailPage({ params }: { params: { orderId: string } }) {
-  const order = await getOrderDetails(params.orderId)
+  const handleStatusChange = (newStatus: Order['status']) => {
+    if (!order) return
+    
+    setCurrentStatus(newStatus)
+    LocalStorage.setOrderStatus(order.id, newStatus)
+    
+    // Trigger a custom event to notify other components
+    window.dispatchEvent(new CustomEvent('orderStatusChanged', {
+      detail: { orderId: order.id, newStatus }
+    }))
+  }
 
-  if (!order) {
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'pending':
+        return 'bg-yellow-100 text-yellow-800 border-yellow-200'
+      case 'processing':
+        return 'bg-blue-100 text-blue-800 border-blue-200'
+      case 'completed':
+        return 'bg-green-100 text-green-800 border-green-200'
+      case 'cancelled':
+        return 'bg-red-100 text-red-800 border-red-200'
+      default:
+        return 'bg-gray-100 text-gray-800 border-gray-200'
+    }
+  }
+
+  if (isLoading) {
     return (
-      <div className="flex-1 space-y-4 p-8 pt-6 text-center">
-        <h2 className="text-2xl font-bold">Order Not Found</h2>
-        <p>The requested order could not be found.</p>
-        <Button asChild>
-          <Link href="/dashboard/orders">Back to Orders</Link>
-        </Button>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600"></div>
       </div>
     )
   }
 
-  const getStatusBadgeVariant = (status: WooCommerceOrder["status"]) => {
-    switch (status) {
-      case "completed":
-        return "success"
-      case "processing":
-        return "default"
-      case "pending":
-        return "warning"
-      case "cancelled":
-        return "destructive"
-      case "refunded":
-        return "outline"
-      default:
-        return "secondary"
-    }
+  if (!order) {
+    return (
+      <div className="text-center py-12">
+        <h1 className="text-2xl font-bold text-gray-900">Order Not Found</h1>
+        <p className="mt-2 text-gray-600">The order you're looking for doesn't exist.</p>
+        <Link 
+          href="/dashboard/orders"
+          className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+        >
+          Back to Orders
+        </Link>
+      </div>
+    )
   }
 
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-6 lg:p-8">
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/dashboard">Dashboard</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/dashboard/orders">Orders</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Order {order.order_id}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
+    <div className="space-y-6">
+      {/* Header */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="icon" asChild className="h-7 w-7">
-            <Link href="/dashboard/orders">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="sr-only">Back</span>
-            </Link>
-          </Button>
-          <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-            Order {order.order_id}
-          </h1>
-          <Badge variant={getStatusBadgeVariant(order.status)} className="ml-2 capitalize">
-            {order.status}
-          </Badge>
+        <div>
+          <Link 
+            href="/dashboard/orders"
+            className="text-sm text-gray-500 hover:text-gray-700 mb-2 inline-block"
+          >
+            ← Back to Orders
+          </Link>
+          <h1 className="text-3xl font-bold text-gray-900">Order #{order.id}</h1>
+          <p className="text-gray-600">Placed on {new Date(order.date).toLocaleDateString()}</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm">
-            <Printer className="mr-2 h-4 w-4" /> Print Invoice
-          </Button>
-        </div>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Customer</CardTitle>
-            <User className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p className="font-medium">{order.customer_name}</p>
-            <p className="text-sm text-muted-foreground">{order.customer_email}</p>
-            {/* Add more customer details if available, e.g., phone, address */}
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Order Details</CardTitle>
-            <Package className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p>Date: {new Date(order.order_date).toLocaleDateString()}</p>
-            <p>Payment: {order.payment_method}</p>
-            {/* Add shipping method if available */}
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Total Amount</CardTitle>
-            <CreditCard className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold">
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: order.currency || "USD",
-              }).format(order.total_amount)}
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Order Items</CardTitle>
-          <CardDescription>Products included in this order.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Product</TableHead>
-                <TableHead>SKU</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead className="text-right">Quantity</TableHead>
-                <TableHead className="text-right">Price</TableHead>
-                <TableHead className="text-right">Total</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {order.items.map((item) => (
-                <TableRow key={item.product_id}>
-                  <TableCell>{item.product_name}</TableCell>
-                  <TableCell>{item.product_id}</TableCell>
-                  <TableCell>{item.category}</TableCell>
-                  <TableCell className="text-right">{item.quantity}</TableCell>
-                  <TableCell className="text-right">
-                    {new Intl.NumberFormat("en-US", { style: "currency", currency: order.currency || "USD" }).format(
-                      item.price,
-                    )}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {new Intl.NumberFormat("en-US", { style: "currency", currency: order.currency || "USD" }).format(
-                      item.price * item.quantity,
-                    )}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-        <CardFooter className="flex justify-end gap-2 border-t pt-4">
-          <div className="grid gap-0.5 text-right">
-            <div className="text-muted-foreground">Subtotal:</div>
-            <div className="text-muted-foreground">Shipping:</div>
-            <div className="font-medium">Total:</div>
+        
+        {/* Status Dropdown */}
+        <div className="flex items-center space-x-4">
+          <div>
+            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">
+              Order Status
+            </label>
+            <select
+              id="status"
+              value={currentStatus}
+              onChange={(e) => handleStatusChange(e.target.value as Order['status'])}
+              className={`px-3 py-2 border rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 ${getStatusColor(currentStatus)}`}
+            >
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
           </div>
-          <div className="grid gap-0.5 text-right">
-            <div>
-              {new Intl.NumberFormat("en-US", { style: "currency", currency: order.currency || "USD" }).format(
-                order.total_amount,
-              )}
-            </div>
-            <div>$0.00</div> {/* Assuming no separate shipping for now */}
-            <div className="font-medium">
-              {new Intl.NumberFormat("en-US", { style: "currency", currency: order.currency || "USD" }).format(
-                order.total_amount,
-              )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Order Details */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Customer Information */}
+          <div className="bg-white shadow border rounded-lg p-6">
+            <h2 className="text-lg font-semibold mb-4">Customer Information</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-sm font-medium text-gray-500">Name</p>
+                <p className="text-sm text-gray-900">{order.customer.name}</p>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-500">Email</p>
+                <p className="text-sm text-gray-900">{order.customer.email}</p>
+              </div>
             </div>
           </div>
-        </CardFooter>
-      </Card>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Billing Address</CardTitle>
-            <HomeIcon className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p>{order.customer_name}</p>
-            <p>123 Billing St.</p>
-            <p>City, State, 12345</p>
-            <p>Country</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Shipping Address</CardTitle>
-            <ShoppingBag className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p>{order.customer_name}</p>
-            <p>456 Shipping Ave.</p>
-            <p>City, State, 67890</p>
-            <p>Country</p>
-          </CardContent>
-        </Card>
+          {/* Billing Address */}
+          <div className="bg-white shadow border rounded-lg p-6">
+            <h2 className="text-lg font-semibold mb-4">Billing Address</h2>
+            <div className="text-sm text-gray-900">
+              <p>{order.billing_address.first_name} {order.billing_address.last_name}</p>
+              {order.billing_address.company && <p>{order.billing_address.company}</p>}
+              <p>{order.billing_address.address_1}</p>
+              {order.billing_address.address_2 && <p>{order.billing_address.address_2}</p>}
+              <p>{order.billing_address.city}, {order.billing_address.state} {order.billing_address.postcode}</p>
+              <p>{order.billing_address.country}</p>
+              {order.billing_address.phone && <p>Phone: {order.billing_address.phone}</p>}
+            </div>
+          </div>
+
+          {/* Shipping Address */}
+          <div className="bg-white shadow border rounded-lg p-6">
+            <h2 className="text-lg font-semibold mb-4">Shipping Address</h2>
+            <div className="text-sm text-gray-900">
+              <p>{order.shipping_address.first_name} {order.shipping_address.last_name}</p>
+              {order.shipping_address.company && <p>{order.shipping_address.company}</p>}
+              <p>{order.shipping_address.address_1}</p>
+              {order.shipping_address.address_2 && <p>{order.shipping_address.address_2}</p>}
+              <p>{order.shipping_address.city}, {order.shipping_address.state} {order.shipping_address.postcode}</p>
+              <p>{order.shipping_address.country}</p>
+            </div>
+          </div>
+
+          {/* Order Items */}
+          <div className="bg-white shadow border rounded-lg p-6">
+            <h2 className="text-lg font-semibold mb-4">Order Items</h2>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead>
+                  <tr>
+                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Product</th>
+                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Quantity</th>
+                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
+                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {order.items.map((item, index) => (
+                    <tr key={index}>
+                      <td className="px-4 py-2 text-sm text-gray-900">{item.name}</td>
+                      <td className="px-4 py-2 text-sm text-gray-900">{item.quantity}</td>
+                      <td className="px-4 py-2 text-sm text-gray-900">${item.price.toFixed(2)}</td>
+                      <td className="px-4 py-2 text-sm text-gray-900">${(item.quantity * item.price).toFixed(2)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-6">
+          {/* Order Summary */}
+          <div className="bg-white shadow border rounded-lg p-6">
+            <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">Subtotal:</span>
+                <span className="text-gray-900">${order.total.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">Shipping:</span>
+                <span className="text-gray-900">$0.00</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">Tax:</span>
+                <span className="text-gray-900">$0.00</span>
+              </div>
+              <div className="border-t pt-2">
+                <div className="flex justify-between font-semibold">
+                  <span>Total:</span>
+                  <span>${order.total.toFixed(2)}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Notes */}
+          {order.notes && (
+            <div className="bg-white shadow border rounded-lg p-6">
+              <h2 className="text-lg font-semibold mb-4">Order Notes</h2>
+              <p className="text-sm text-gray-900">{order.notes}</p>
+            </div>
+          )}
+
+          {/* Attached Files */}
+          {order.attached_files && order.attached_files.length > 0 && (
+            <div className="bg-white shadow border rounded-lg p-6">
+              <h2 className="text-lg font-semibold mb-4">Attached Files</h2>
+              <div className="space-y-2">
+                {order.attached_files.map((file, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <a 
+                      href={file.url} 
+                      download={file.name}
+                      className="text-sm text-indigo-600 hover:text-indigo-800"
+                    >
+                      {file.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Order Notes</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">No notes for this order.</p>
-          {/* Or display actual notes if available */}
-        </CardContent>
-      </Card>
     </div>
   )
-}
+} 

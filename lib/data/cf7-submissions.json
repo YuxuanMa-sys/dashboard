@@ -1,240 +1,400 @@
 [
   {
-    "submission_id": "CF7-S001",
-    "form_id": "contact-form-1",
-    "form_name": "General Inquiry",
-    "submission_date": "2025-06-02T09:00:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "Charlie Brown",
-      "your-email": "charlie@example.com",
-      "your-subject": "Question about services",
-      "your-message": "I would like to know more about your data analysis packages."
-    }
+    "id": "CF001",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "John Smith",
+      "email": "john.smith@email.com",
+      "subject": "General Inquiry",
+      "message": "Hi, I'm interested in learning more about your services. Could you please provide me with more information about your pricing and packages?",
+      "phone": "+1-555-0123"
+    },
+    "submitted_at": "2024-01-15T10:30:00Z",
+    "status": "new"
   },
   {
-    "submission_id": "CF7-S002",
-    "form_id": "quote-request-form",
+    "id": "CF002",
+    "form_name": "Support Request",
+    "data": {
+      "name": "Sarah Johnson",
+      "email": "sarah.j@company.com",
+      "subject": "Technical Support",
+      "message": "I'm experiencing issues with my account login. Every time I try to access my dashboard, I get an error message. Can you help me resolve this?",
+      "priority": "high"
+    },
+    "submitted_at": "2024-01-14T14:22:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF003",
     "form_name": "Quote Request",
-    "submission_date": "2025-06-06T11:45:00Z",
-    "status": "Contacted",
-    "fields": {
-      "your-name": "Diana Prince",
-      "your-email": "diana@example.com",
-      "company-name": "Themyscira Inc.",
-      "service-needed": "Advanced Data Analytics",
-      "project-details": "Looking for a detailed analysis of our sales data."
-    }
+    "data": {
+      "name": "Michael Brown",
+      "email": "m.brown@business.org",
+      "subject": "Quote Request",
+      "message": "We're looking for a comprehensive solution for our team of 50 people. Could you provide a detailed quote including all features and support options?",
+      "company": "Brown & Associates",
+      "team_size": "50"
+    },
+    "submitted_at": "2024-01-13T09:15:00Z",
+    "status": "replied"
   },
   {
-    "submission_id": "CF7-S003",
-    "form_id": "support-ticket",
-    "form_name": "Support Ticket",
-    "submission_date": "2025-06-08T14:20:00Z",
-    "status": "In Progress",
-    "fields": {
-      "your-name": "Peter Parker",
-      "your-email": "peter@example.com",
-      "issue-type": "Technical Difficulty",
-      "description": "Unable to access my account dashboard."
-    }
+    "id": "CF004",
+    "form_name": "Feedback Form",
+    "data": {
+      "name": "Emily Davis",
+      "email": "emily.davis@gmail.com",
+      "subject": "Product Feedback",
+      "message": "I've been using your product for 3 months now and I'm really impressed with the features. However, I think the mobile app could use some improvements in terms of user interface.",
+      "rating": "4"
+    },
+    "submitted_at": "2024-01-12T16:45:00Z",
+    "status": "new"
   },
   {
-    "submission_id": "CF7-S004",
-    "form_id": "contact-form-1",
-    "form_name": "General Inquiry",
-    "submission_date": "2025-06-10T17:00:00Z",
-    "status": "Qualified",
-    "fields": {
-      "your-name": "Bruce Wayne",
-      "your-email": "bruce@example.com",
-      "your-subject": "Partnership Opportunity",
-      "your-message": "Interested in discussing a potential partnership."
-    }
+    "id": "CF005",
+    "form_name": "Partnership Inquiry",
+    "data": {
+      "name": "David Wilson",
+      "email": "david@techstartup.com",
+      "subject": "Partnership Opportunity",
+      "message": "We're a growing tech startup and we're interested in exploring partnership opportunities with your company. We believe there could be great synergy between our services.",
+      "company": "TechStartup Inc."
+    },
+    "submitted_at": "2024-01-11T11:20:00Z",
+    "status": "read"
   },
   {
-    "submission_id": "CF7-S005",
-    "form_id": "feedback-form",
-    "form_name": "User Feedback",
-    "submission_date": "2025-06-11T10:30:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "Edward Norton",
-      "your-email": "edward@example.com",
-      "rating": "5",
-      "comments": "Great service, very helpful!"
-    }
+    "id": "CF006",
+    "form_name": "Bug Report",
+    "data": {
+      "name": "Lisa Anderson",
+      "email": "lisa.anderson@email.com",
+      "subject": "Bug Report",
+      "message": "I found a bug in the reporting feature. When I try to export data to CSV, the file comes out corrupted. This happens consistently on Chrome browser.",
+      "browser": "Chrome",
+      "version": "119.0"
+    },
+    "submitted_at": "2024-01-10T13:30:00Z",
+    "status": "new"
   },
   {
-    "submission_id": "CF7-S006",
-    "form_id": "contact-form-1",
-    "form_name": "General Inquiry",
-    "submission_date": "2025-06-12T15:00:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "Fiona Apple",
-      "your-email": "fiona@example.com",
-      "your-subject": "Pricing Information",
-      "your-message": "Could you provide more details on your enterprise plan?"
-    }
+    "id": "CF007",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Robert Taylor",
+      "email": "robert.taylor@company.net",
+      "subject": "General Inquiry",
+      "message": "I'm considering switching from our current solution to yours. What's the migration process like and do you offer any assistance with data transfer?",
+      "current_solution": "Competitor X"
+    },
+    "submitted_at": "2024-01-09T08:45:00Z",
+    "status": "replied"
   },
   {
-    "submission_id": "CF7-S007",
-    "form_id": "quote-request-form",
+    "id": "CF008",
+    "form_name": "Feature Request",
+    "data": {
+      "name": "Jennifer Martinez",
+      "email": "j.martinez@business.com",
+      "subject": "Feature Request",
+      "message": "It would be great if you could add integration with Slack. This would really help our team stay updated on important notifications without having to check the dashboard constantly.",
+      "integration": "Slack"
+    },
+    "submitted_at": "2024-01-08T15:10:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF009",
+    "form_name": "Support Request",
+    "data": {
+      "name": "Christopher Lee",
+      "email": "chris.lee@startup.io",
+      "subject": "Technical Support",
+      "message": "Our API integration is not working properly. We're getting 401 errors even though our API key is correct. Could you please check if there's an issue on your end?",
+      "error_code": "401",
+      "api_key": "ak_***masked***"
+    },
+    "submitted_at": "2024-01-07T12:25:00Z",
+    "status": "new"
+  },
+  {
+    "id": "CF010",
+    "form_name": "Sales Inquiry",
+    "data": {
+      "name": "Amanda White",
+      "email": "amanda.white@enterprise.com",
+      "subject": "Sales Inquiry",
+      "message": "We're an enterprise client looking for a custom solution. We need advanced security features and dedicated support. Can we schedule a call to discuss our requirements?",
+      "company_size": "500+",
+      "industry": "Finance"
+    },
+    "submitted_at": "2024-01-06T10:00:00Z",
+    "status": "replied"
+  },
+  {
+    "id": "CF011",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Kevin Garcia",
+      "email": "kevin.garcia@email.com",
+      "subject": "Billing Question",
+      "message": "I have a question about my recent invoice. There seems to be a charge I don't recognize. Could you please help me understand what this charge is for?",
+      "invoice_number": "INV-2024-001"
+    },
+    "submitted_at": "2024-01-05T14:30:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF012",
+    "form_name": "Newsletter Signup",
+    "data": {
+      "name": "Michelle Rodriguez",
+      "email": "michelle.r@company.org",
+      "subject": "General Inquiry",
+      "message": "I signed up for your newsletter but I'm not receiving any emails. Could you please check if my email address is correctly added to your mailing list?",
+      "subscription_date": "2024-01-01"
+    },
+    "submitted_at": "2024-01-04T09:15:00Z",
+    "status": "new"
+  },
+  {
+    "id": "CF013",
+    "form_name": "Demo Request",
+    "data": {
+      "name": "Thomas Clark",
+      "email": "thomas.clark@business.net",
+      "subject": "Demo Request",
+      "message": "We're evaluating different solutions for our team and would like to schedule a demo. We're particularly interested in the analytics and reporting features.",
+      "team_size": "25",
+      "industry": "Marketing"
+    },
+    "submitted_at": "2024-01-03T11:45:00Z",
+    "status": "replied"
+  },
+  {
+    "id": "CF014",
+    "form_name": "Support Request",
+    "data": {
+      "name": "Nancy Lewis",
+      "email": "nancy.lewis@company.com",
+      "subject": "Account Issue",
+      "message": "I'm unable to update my profile information. Every time I try to save changes, I get an error message saying 'Failed to update profile'. This has been happening for the past week.",
+      "error_duration": "1 week"
+    },
+    "submitted_at": "2024-01-02T16:20:00Z",
+    "status": "new"
+  },
+  {
+    "id": "CF015",
+    "form_name": "Feedback Form",
+    "data": {
+      "name": "Daniel Walker",
+      "email": "daniel.walker@email.com",
+      "subject": "Product Feedback",
+      "message": "The recent update is fantastic! The new dashboard design is much more intuitive and the performance improvements are noticeable. Keep up the great work!",
+      "rating": "5"
+    },
+    "submitted_at": "2024-01-01T13:00:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF016",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Karen Hall",
+      "email": "karen.hall@startup.com",
+      "subject": "Integration Question",
+      "message": "We're using Zapier for our workflow automation. Do you have any pre-built Zapier integrations available? If not, is there an API we can use to create custom integrations?",
+      "tool": "Zapier"
+    },
+    "submitted_at": "2023-12-31T10:30:00Z",
+    "status": "replied"
+  },
+  {
+    "id": "CF017",
+    "form_name": "Bug Report",
+    "data": {
+      "name": "Steven Young",
+      "email": "steven.young@company.org",
+      "subject": "Bug Report",
+      "message": "The search functionality is not working properly. When I search for specific terms, it returns irrelevant results or sometimes no results at all, even though I know the data exists.",
+      "feature": "Search"
+    },
+    "submitted_at": "2023-12-30T15:45:00Z",
+    "status": "new"
+  },
+  {
+    "id": "CF018",
+    "form_name": "Training Request",
+    "data": {
+      "name": "Betty King",
+      "email": "betty.king@enterprise.net",
+      "subject": "Training Request",
+      "message": "We've recently onboarded 20 new team members and they need training on how to use your platform effectively. Do you offer group training sessions or webinars?",
+      "team_size": "20",
+      "training_type": "Group"
+    },
+    "submitted_at": "2023-12-29T12:15:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF019",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Edward Wright",
+      "email": "edward.wright@business.com",
+      "subject": "Cancellation Request",
+      "message": "Unfortunately, we need to cancel our subscription due to budget constraints. Could you please guide us through the cancellation process and let us know about any data export options?",
+      "reason": "Budget constraints"
+    },
+    "submitted_at": "2023-12-28T09:30:00Z",
+    "status": "replied"
+  },
+  {
+    "id": "CF020",
+    "form_name": "Feature Request",
+    "data": {
+      "name": "Dorothy Lopez",
+      "email": "dorothy.lopez@company.io",
+      "subject": "Feature Request",
+      "message": "It would be helpful to have a mobile app for iOS and Android. Many of our team members are often on the go and would benefit from being able to access the platform from their mobile devices.",
+      "platform": "Mobile"
+    },
+    "submitted_at": "2023-12-27T14:00:00Z",
+    "status": "new"
+  },
+  {
+    "id": "CF021",
+    "form_name": "Support Request",
+    "data": {
+      "name": "Frank Hill",
+      "email": "frank.hill@startup.org",
+      "subject": "Technical Support",
+      "message": "We're experiencing slow loading times, especially when generating reports. The reports that used to load in 5 seconds now take over 30 seconds. Has there been any changes to the system recently?",
+      "issue": "Performance"
+    },
+    "submitted_at": "2023-12-26T11:20:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF022",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Helen Green",
+      "email": "helen.green@email.com",
+      "subject": "General Inquiry",
+      "message": "I'm a freelancer and I'm interested in your individual plan. However, I need to know if there are any limitations on the number of projects I can manage with this plan.",
+      "plan_type": "Individual"
+    },
+    "submitted_at": "2023-12-25T16:45:00Z",
+    "status": "new"
+  },
+  {
+    "id": "CF023",
+    "form_name": "Partnership Inquiry",
+    "data": {
+      "name": "George Adams",
+      "email": "george.adams@agency.com",
+      "subject": "Partnership Opportunity",
+      "message": "We're a digital marketing agency and we'd like to become a certified partner. We have several clients who could benefit from your platform. What's the process to become a partner?",
+      "company": "Digital Marketing Agency",
+      "client_count": "50+"
+    },
+    "submitted_at": "2023-12-24T13:10:00Z",
+    "status": "replied"
+  },
+  {
+    "id": "CF024",
+    "form_name": "Feedback Form",
+    "data": {
+      "name": "Maria Baker",
+      "email": "maria.baker@company.net",
+      "subject": "Product Feedback",
+      "message": "The customer support team is excellent! They responded to my query within an hour and provided a detailed solution. However, I think the documentation could be more comprehensive.",
+      "rating": "4"
+    },
+    "submitted_at": "2023-12-23T10:25:00Z",
+    "status": "read"
+  },
+  {
+    "id": "CF025",
     "form_name": "Quote Request",
-    "submission_date": "2025-06-13T09:15:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "George Clooney",
-      "your-email": "george@example.com",
-      "company-name": "Ocean Eleven LLC",
-      "service-needed": "Data Migration",
-      "project-details": "Need to migrate legacy data to a new system."
-    }
+    "data": {
+      "name": "Paul Nelson",
+      "email": "paul.nelson@enterprise.org",
+      "subject": "Quote Request",
+      "message": "We need a quote for 100 users with premium features including advanced analytics, custom branding, and priority support. We're looking to make a decision by the end of this month.",
+      "user_count": "100",
+      "features": "Premium"
+    },
+    "submitted_at": "2023-12-22T15:30:00Z",
+    "status": "new"
   },
   {
-    "submission_id": "CF7-S008",
-    "form_id": "support-ticket",
-    "form_name": "Support Ticket",
-    "submission_date": "2025-06-14T11:00:00Z",
-    "status": "In Progress",
-    "fields": {
-      "your-name": "Helen Hunt",
-      "your-email": "helen@example.com",
-      "issue-type": "Billing Inquiry",
-      "description": "There's a discrepancy on my last invoice."
-    }
+    "id": "CF026",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Laura Carter",
+      "email": "laura.carter@business.com",
+      "subject": "Account Issue",
+      "message": "I'm trying to upgrade my account but the payment is failing. I've tried multiple credit cards and they all fail at checkout. Could you please help me resolve this issue?",
+      "issue_type": "Payment"
+    },
+    "submitted_at": "2023-12-21T12:45:00Z",
+    "status": "replied"
   },
   {
-    "submission_id": "CF7-S009",
-    "form_id": "contact-form-1",
-    "form_name": "General Inquiry",
-    "submission_date": "2025-06-15T16:30:00Z",
-    "status": "Contacted",
-    "fields": {
-      "your-name": "Ian McKellen",
-      "your-email": "ian@example.com",
-      "your-subject": "Feature Request",
-      "your-message": "It would be great if you could add X feature."
-    }
+    "id": "CF027",
+    "form_name": "Bug Report",
+    "data": {
+      "name": "Mark Mitchell",
+      "email": "mark.mitchell@startup.io",
+      "subject": "Bug Report",
+      "message": "There's a bug in the notification system. I'm not receiving email notifications for important updates, even though I have all notifications enabled in my settings.",
+      "feature": "Notifications"
+    },
+    "submitted_at": "2023-12-20T09:15:00Z",
+    "status": "new"
   },
   {
-    "submission_id": "CF7-S010",
-    "form_id": "feedback-form",
-    "form_name": "User Feedback",
-    "submission_date": "2025-06-16T12:45:00Z",
-    "status": "Closed",
-    "fields": {
-      "your-name": "Jennifer Aniston",
-      "your-email": "jennifer@example.com",
-      "rating": "4",
-      "comments": "Good, but could use some improvements in UI."
-    }
+    "id": "CF028",
+    "form_name": "Demo Request",
+    "data": {
+      "name": "Sandra Perez",
+      "email": "sandra.perez@company.org",
+      "subject": "Demo Request",
+      "message": "We're a non-profit organization and we're interested in your platform for managing our volunteer programs. Do you offer any special pricing for non-profits? We'd also like to schedule a demo.",
+      "organization_type": "Non-profit"
+    },
+    "submitted_at": "2023-12-19T14:20:00Z",
+    "status": "read"
   },
   {
-    "submission_id": "CF7-S011",
-    "form_id": "quote-request-form",
-    "form_name": "Quote Request",
-    "submission_date": "2025-06-17T14:20:00Z",
-    "status": "Qualified",
-    "fields": {
-      "your-name": "Keanu Reeves",
-      "your-email": "keanu@example.com",
-      "company-name": "Matrix Solutions",
-      "service-needed": "Custom Dashboard Development",
-      "project-details": "Require a bespoke dashboard for our sales team."
-    }
+    "id": "CF029",
+    "form_name": "Feature Request",
+    "data": {
+      "name": "Brian Roberts",
+      "email": "brian.roberts@business.net",
+      "subject": "Feature Request",
+      "message": "We need better collaboration features. It would be great to have real-time commenting and @mentions so team members can communicate directly within the platform without switching to other tools.",
+      "feature_type": "Collaboration"
+    },
+    "submitted_at": "2023-12-18T11:00:00Z",
+    "status": "replied"
   },
   {
-    "submission_id": "CF7-S012",
-    "form_id": "support-ticket",
-    "form_name": "Support Ticket",
-    "submission_date": "2025-06-18T08:50:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "Leonardo DiCaprio",
-      "your-email": "leo@example.com",
-      "issue-type": "Login Problem",
-      "description": "Cannot log in, password reset not working."
-    }
-  },
-  {
-    "submission_id": "CF7-S013",
-    "form_id": "contact-form-1",
-    "form_name": "General Inquiry",
-    "submission_date": "2025-06-19T10:05:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "Meryl Streep",
-      "your-email": "meryl@example.com",
-      "your-subject": "Collaboration Inquiry",
-      "your-message": "Interested in exploring collaboration opportunities."
-    }
-  },
-  {
-    "submission_id": "CF7-S014",
-    "form_id": "feedback-form",
-    "form_name": "User Feedback",
-    "submission_date": "2025-06-20T13:30:00Z",
-    "status": "New",
-    "fields": {
-      "your-name": "Natalie Portman",
-      "your-email": "natalie@example.com",
-      "rating": "3",
-      "comments": "The onboarding process was a bit confusing."
-    }
-  },
-  {
-    "submission_id": "CF7-S015",
-    "form_id": "quote-request-form",
-    "form_name": "Quote Request",
-    "submission_date": "2025-06-21T15:55:00Z",
-    "status": "Contacted",
-    "fields": {
-      "your-name": "Orlando Bloom",
-      "your-email": "orlando@example.com",
-      "company-name": "Pirates Co.",
-      "service-needed": "Data Visualization",
-      "project-details": "Need help visualizing our marketing campaign results."
-    }
-  },
-  {
-    "submission_id": "CF7-S016",
-    "form_id": "support-ticket",
-    "form_name": "Support Ticket",
-    "submission_date": "2025-06-22T17:40:00Z",
-    "status": "In Progress",
-    "fields": {
-      "your-name": "Penelope Cruz",
-      "your-email": "penelope@example.com",
-      "issue-type": "Feature Malfunction",
-      "description": "The export to CSV feature is not working as expected."
-    }
-  },
-  {
-    "submission_id": "CF7-S017",
-    "form_id": "contact-form-1",
-    "form_name": "General Inquiry",
-    "submission_date": "2025-06-23T09:00:00Z",
-    "status": "Qualified",
-    "fields": {
-      "your-name": "Quentin Tarantino",
-      "your-email": "quentint@example.com",
-      "your-subject": "Speaking Engagement",
-      "your-message": "Inquiring about availability for a speaking engagement."
-    }
-  },
-  {
-    "submission_id": "CF7-S018",
-    "form_id": "feedback-form",
-    "form_name": "User Feedback",
-    "submission_date": "2025-06-24T11:20:00Z",
-    "status": "Closed",
-    "fields": {
-      "your-name": "Robert Downey Jr.",
-      "your-email": "robertd@example.com",
-      "rating": "5",
-      "comments": "Absolutely fantastic tool, saves me a lot of time!"
-    }
+    "id": "CF030",
+    "form_name": "Contact Form",
+    "data": {
+      "name": "Deborah Turner",
+      "email": "deborah.turner@email.com",
+      "subject": "Billing Question",
+      "message": "I was charged twice for this month's subscription. I can see two identical charges on my credit card statement. Could you please refund the duplicate charge and ensure this doesn't happen again?",
+      "issue": "Duplicate charge"
+    },
+    "submitted_at": "2023-12-17T16:30:00Z",
+    "status": "new"
   }
-]
+] 
